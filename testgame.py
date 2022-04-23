@@ -48,6 +48,10 @@ class TestGameMethods(unittest.TestCase):
     rook.move(-3,0)
     self.assertTrue(rook.pos.x == 7)
 
+    rook.pos.set(2,2)
+    with self.assertRaises(RuntimeError) as cm:
+      rook.move(3,1)
+
   # test out of bounds, for Position class
   def test_Position(self):
     with self.assertRaises(RuntimeError) as cm:
